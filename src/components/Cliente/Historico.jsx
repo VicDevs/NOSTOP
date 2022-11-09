@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { CardVaga} from "../../styled";
 
 const verificar = sessionStorage.getItem("usuario-validado")
-
+//sds
 export default function Hsitorico(){
 
     // useEffect(()=>{

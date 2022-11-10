@@ -88,7 +88,7 @@ export default function CadastroVeiculo(){
             veiculo.precoHora = "11.48"
         } else if (veiculo.ano === "2009"){
             veiculo.precoHora = "9.64"
-        } else if (veiculo.ano === "2008"){
+        } else{
             veiculo.precoHora = "7.8"
         }
 
@@ -121,7 +121,7 @@ export default function CadastroVeiculo(){
             veiculo.precoHora = "6.68"
         } else if (veiculo.ano === "2009"){
             veiculo.precoHora = "4.44"
-        } else if (veiculo.ano === "2008"){
+        } else{
             veiculo.precoHora = "2.2"
         }
     } else if (modelo === "Etios"){
@@ -153,7 +153,7 @@ export default function CadastroVeiculo(){
             veiculo.precoHora = "3.8"
         } else if (veiculo.ano === "2009"){
             veiculo.precoHora = "3"
-        } else if (veiculo.ano === "2008"){
+        } else{
             veiculo.precoHora = "2.2"
         }
     } else if (modelo === "Onix"){
@@ -185,7 +185,7 @@ export default function CadastroVeiculo(){
             veiculo.precoHora = "2.6"
         } else if (veiculo.ano === "2009"){
             veiculo.precoHora = "1.8"
-        } else if (veiculo.ano === "2008"){
+        } else{
             veiculo.precoHora = "0.96"
         }
     } else if (modelo === "Kicks"){
@@ -217,7 +217,7 @@ export default function CadastroVeiculo(){
             veiculo.precoHora = "10.4"
         } else if (veiculo.ano === "2009"){
             veiculo.precoHora = "9.6"
-        } else if (veiculo.ano === "2008"){
+        } else{
             veiculo.precoHora = "8.8"
         }
     } else if (modelo === "Tcross"){
@@ -249,7 +249,7 @@ export default function CadastroVeiculo(){
             veiculo.precoHora = "17.2"
         } else if (veiculo.ano === "2009"){
             veiculo.precoHora = "16.4"
-        } else if (veiculo.ano === "2008"){
+        } else{
             veiculo.precoHora = "15.4"
         }
     }
@@ -275,7 +275,9 @@ export default function CadastroVeiculo(){
               "Content-Type":"application/json"
         },
           body: JSON.stringify(veiculo)
-          })
+          }).then(()=>{
+            window.location = "/paginaInicial"
+        })
       }
 
     // useEffect(()=>{

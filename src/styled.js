@@ -42,6 +42,7 @@ legend{
         padding: 6px;
         color: #ccc;
         margin-left: 4vh;
+        
     }
     input{
         margin-left: 5vh;
@@ -88,9 +89,12 @@ legend{
 
     select{
         border-radius: 1em;
-        padding: .3em;
+        padding: .5em;
         align-self: center;
+        width: 50%;
         background-color: #ccc;
+        margin-left: 25%;
+        display: block;
     }
         
     button{
@@ -946,14 +950,24 @@ export const PaginaIni = styled.div`
 `
 export const DivAluguel = styled.div`
     margin-top: 20vh;
+
+    form{
+        select{
+           align-self: center;
+        }
+    }
     #submitAluguel{
         margin: 5vh auto;
     }
-
 `
 export const DivCadastroVeiculos = styled.div`
-    margin-top: 15vh;
+    margin: 15vh auto;
     width: 50%;
+    form{
+        select{
+            margin-left: 0;
+        }
+    }
 `
 
 export const DivImgHome = styled.div`
@@ -972,7 +986,6 @@ export const DivImgHome = styled.div`
     }
 `
 export const CardVaga = styled.div`
-    
     width: 90%;
     margin: 10vh auto;
     background: radial-gradient(circle, rgba(0,144,130,1) 0%, rgba(17,17,26,1) 100%);
@@ -991,21 +1004,21 @@ export const CardVaga = styled.div`
 `
 
 export const ContainerAluguel = styled.div`
-    display: flex;
-    margin: 10vh 0;
+    display:flex;
+    justify-content: center;
+    margin-top: 10vh;
 
     #sectionAluguel{
-        width: 50%;
+        width: 80%;
         scroll-behavior: smooth;
         overflow-y: scroll;
         height: 70vh;
-        margin-top: 10vh;
+        margin:10vh auto;
 
         h1{
             text-align:center;
             font-size: 2.2em;
             color: #ccc;
-            
         }
         ::-webkit-scrollbar{
             background-color: #ccc5;
@@ -1017,11 +1030,5 @@ export const ContainerAluguel = styled.div`
             border-radius: 1em;
             border: 2px solid #000;
         }
-    }
-
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
     }
 `

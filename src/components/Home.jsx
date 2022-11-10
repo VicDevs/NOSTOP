@@ -1,6 +1,7 @@
 import {DivBox,DivContent, Span1, DivImgHome, Span2, Span3, IdeiaHome, DivTexto, CardsSection, Card, TituloCard, CardImg, TituloSection, CardEco, TituloEco, Parceiro, Parceiro2, Parceiro3, TituloParceiros, Parceiros} from '../styled'
 import Menu from './Menu'
 import { Link } from "react-router-dom"
+import Footer from './Footer';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 import Card1 from '../img/civic.jpg'
@@ -104,6 +105,7 @@ export default function Home(){
                 <Parceiro3/>
             </Parceiros>
         </DivBox>
+        <Footer/>
         </>
     )
 }

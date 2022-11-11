@@ -105,7 +105,6 @@ export default function Home(){
                 <Parceiro3/>
             </Parceiros>
         </DivBox>
-        <Footer/>
         </>
     )
 }

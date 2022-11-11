@@ -2,6 +2,7 @@ import{ useParams } from 'react-router-dom'
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { Form, DivAluguel, ContainerAluguel} from "../../styled";
+import MenuInicial from './MenuInicial'
 
 export default function ConfirmacaoAluguel() {
 
@@ -16,24 +17,16 @@ export default function ConfirmacaoAluguel() {
     }
 
     if(aluguel.quantidadeHoras > 0){
-        console.log()
         aluguel.valorTotal = aluguel.quantidadeHoras * precoHora;
     }
 
-    function inserirAluguel(e) {
-        e.preventDefault()
+    useEffect(()=>{
+        if(verificar == null){
+            window.location = "/"
+        }
+    },[])
 
-        fetch(`http://localhost:8080/Prova/rest/Aluguel/${verificar}`)
-        .then((resp)=>{
-            return(resp.json())
-        }).then(data=>{
-            console.log(data)
-        })
-        
-        aluguel.idVeiculo = id;
-
-        console.log(JSON.stringify(aluguel))
-    
+    function setDados(){
         fetch(`http://localhost:8080/Prova/rest/Aluguel`,{
           method: "post",
           headers:{
@@ -42,8 +35,25 @@ export default function ConfirmacaoAluguel() {
           body: JSON.stringify(aluguel)
           })
     }
+    
+    function inserirAluguel(e) {
+        e.preventDefault()
+
+        aluguel.idVeiculo = id;
+
+        fetch(`http://localhost:8080/Prova/rest/Aluguel/${verificar}`)
+        .then((resp)=>{
+            return(resp.json())
+        }).then(data=>{
+            aluguel.idCliente = data;
+            setDados()
+        }).then(()=>{
+            window.location = "/paginaInicial"
+        })
+    }
     return(
         <>
+            <MenuInicial/>
             <ContainerAluguel>
                 <DivAluguel>
                     <Form onSubmit={inserirAluguel}>
@@ -59,6 +69,7 @@ export default function ConfirmacaoAluguel() {
                                 <br/>
 
                         <label id='seguro' htmlFor="idSeguro">Seguro: </label>
+
                                 <select id="idSeguro" name="seguro" onChange={cadastraAluguel} value={aluguel.seguro}>
                                     <option>Escolha...</option>
                                     <option>S</option>

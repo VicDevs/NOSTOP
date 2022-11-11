@@ -11,11 +11,11 @@ export default function Footer() {
                 <DivDevs>
                     <ul>
                         <li>- Desenvolvedores -</li>
-                        <li>Julio Machado</li>
-                        <li>Victor Hugo</li>
-                        <li>Vitório Graton</li>
-                        <li>Matheus Montemurro</li>
-                        <li>Ricardo Kim</li>
+                        <li>Julio Machado RM:93285</li>
+                        <li>Victor Hugo RM:95680</li>
+                        <li>Vitório Graton RM:95476</li>
+                        <li>Matheus Montemurro RM:94689</li>
+                        <li>Ricardo Kim RM:94190</li>
                     </ul>
                 </DivDevs>
                 

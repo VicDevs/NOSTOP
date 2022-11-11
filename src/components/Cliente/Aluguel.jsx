@@ -2,6 +2,7 @@ import MenuInicial from "./MenuInicial";
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { CardVaga,Form, DivAluguel, ContainerAluguel} from "../../styled";
+import Footer from '../Footer'
 
 const verificar = sessionStorage.getItem("usuario-validado")
 
@@ -10,9 +11,9 @@ export default function Aluguel(){
 
     useEffect(()=>{
 
-        // if(verificar == null){
-        //     window.location = "/"
-        // }
+        if(verificar == null){
+            window.location = "/"
+        }
 
         fetch("http://localhost:8080/Prova/rest/Cadastro/Veiculo").then((resp)=>{
             return resp.json();
@@ -41,18 +42,8 @@ export default function Aluguel(){
                     <Link to={"/confirmacaoAluguel/" + veiculo.idVeiculo + "/" + veiculo.precoHora}>Alugar veiculo</Link>
                 </CardVaga>
                 ))}
-
-                <CardVaga>
-                <p>Modelo: Civic</p>
-                    <p>Marca: Honda</p>
-                    <p>Ano: 2018</p>
-                    <p>Preco por hora: R$26</p>
-                    <p>Endereço: rua teste</p>
-                    <p>Disponivel de 13:00 até 20:00</p>
-                    <Link to={"/confirmacaoAluguel/23/23"}>Alugar veiculo</Link>
-                </CardVaga>
             </section>
-            </ContainerAluguel> 
+            </ContainerAluguel>
         </>
     )
 }

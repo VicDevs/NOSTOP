@@ -1,17 +1,18 @@
 import MenuInicial from "./MenuInicial";
 import { useState, useEffect } from "react";
 import { CardVaga} from "../../styled";
+import { Link } from "react-router-dom"
 
 const verificar = sessionStorage.getItem("usuario-validado")
-//sds
+
 export default function Hsitorico(){
 
     const [historico, setHistorico] = useState([])
     
     useEffect(()=>{
-        // if(verificar == null){
-        //     window.location = "/"
-        // }
+        if(verificar == null){
+            window.location = "/"
+        }
         console.log(verificar)
         fetch(`http://localhost:8080/Prova/rest/Historico/${verificar}`)
         .then((resp)=>{
@@ -19,55 +20,31 @@ export default function Hsitorico(){
         }).then((resp)=>{
             setHistorico(resp)
         })
-        
-        // .then(data=>{
-        //    recrutador.idCompanhia = data;
-        // })
-
-        // fetch("http://localhost:8080/Prova/rest/Historico'").then((resp)=>{
-        //     return resp.json();
-        // }).then((resp)=>{
-        //     setHistorico(resp)
-        //     console.log(resp)
-        // }).catch((error)=>{
-        //     console.log(error)
-        // })
-
     },[])
+
+    function verificarAvaliacao(avaliacao, idAluguel){
+        console.log(idAluguel)
+        if(avaliacao == null){
+            return <Link to={"/avaliacao/" + idAluguel}>Avaliar veiculo</Link>
+        }else{
+            return avaliacao
+        }
+    }
 
     return(
         <>
             <MenuInicial/>
-            {historico.map((veiculo)=>(
+            {historico.map((veiculos)=>(
             <CardVaga>
-                <p>Tipo de pagamento: {veiculo.tipoPagamento}</p>
-                <p>Seguro: {veiculo.seguro}</p>
-                <p>Quantidade de Horas: {veiculo.quantidadeHoras}</p>
-                <p>Avaliacao: {veiculo.avaliacao}</p>{/*se estiver vazio colocar botao para avaliar */}
-                <p>Valor total: {veiculo.valorTotal}</p>
-                <p>Marca: {veiculo.marca}</p>
-                <p>Modelo: {veiculo.modelo}</p>
-                {/* <Link to={"/avaliacao/" + veiculo.idAluguel }>Alugar veiculo</Link> */}
+                <p>Tipo de pagamento: {veiculos.tipoPagamento}</p>
+                <p>Seguro: {veiculos.seguro}</p>
+                <p>Quantidade de Horas: {veiculos.quantidadeHoras}</p>
+                <p>Avaliacao: {verificarAvaliacao(veiculos.avaliacao, veiculos.idAluguel)}</p>
+                <p>Valor total: {veiculos.valorTotal}</p>
+                <p>Marca: {veiculos.marca}</p>
+                <p>Modelo: {veiculos.modelo}</p>
             </CardVaga>
             ))}
-            <CardVaga>
-                <p>tipoPagamento</p>
-                <p>seguro</p>
-                <p>quantidadeHoras</p>
-                <p>avaliacao</p>
-                <p>valorTotal</p>
-                <p>marca</p>
-                <p>modelo</p>
-            </CardVaga>
-            <CardVaga>
-            <p>tipoPagamento</p>
-                <p>seguro</p>
-                <p>quantidadeHoras</p>
-                <p>avaliacao</p>
-                <p>valorTotal</p>
-                <p>marca</p>
-                <p>modelo</p>
-            </CardVaga>
         </>
     )
 }

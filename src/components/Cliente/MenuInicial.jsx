@@ -30,7 +30,7 @@ export default function MenuInicial(){
                 </li>
                 <li>
                     <AiFillCar className="iconMenuPrincipal"/>
-                    <Link to={"/cadastroVeiculo"}>Veiculos</Link>
+                    <Link to={"/cadastroVeiculo"}>Cadastrar</Link>
                 </li>
                 <li>
                     <MdAttachMoney id="money" className="iconMenuPrincipal"/>
@@ -43,6 +43,10 @@ export default function MenuInicial(){
                 <li>
                     <FaUserEdit className="iconMenuPrincipal"/>
                     <Link to={"/perfil"}>Perfil</Link>
+                </li>
+                <li>
+                    <FaUserEdit className="iconMenuPrincipal"/>
+                    <Link to={"/veiculos"}>Veículos</Link>
                 </li>
                 <li>
                     <button id='logOut' onClick={logout}><BiLogOut/></button>

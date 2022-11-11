@@ -254,37 +254,42 @@ export default function CadastroVeiculo(){
         }
     }
 
+    function getId(){
+
+    }
+
+    function setDados(){
+        fetch(`http://localhost:8080/Prova/rest/Cadastro/Veiculo`,{
+            method: "post",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(veiculo)
+        }).then(()=>{
+            window.location = "/paginaInicial"
+        })
+    }
 
     function inserirVeiculoBanco(e) {
         e.preventDefault()
+
         fetch(`http://localhost:8080/Prova/rest/Cadastro/Veiculo/${verificar}`)
         .then((resp)=>{
             return(resp.json())
         }).then(data=>{
-           veiculo.idCliente = data;
+            veiculo.idCliente = data;
+            setDados()
         })
-    
+
         veiculo.modelo = modelo;
         veiculo.marca = marca;
-        
-        console.log(JSON.stringify(veiculo))
-
-        fetch(`http://localhost:8080/Prova/rest/Cadastro/Veiculo`,{
-          method: "post",
-          headers:{
-              "Content-Type":"application/json"
-        },
-          body: JSON.stringify(veiculo)
-          }).then(()=>{
-            window.location = "/paginaInicial"
-        })
       }
 
-    // useEffect(()=>{
-    //     if(verificar == null){
-    //         window.location = "/"
-    //     }
-    // },[])
+    useEffect(()=>{
+        if(verificar == null){
+            window.location = "/"
+        }
+    },[])
 
    return (
         <>

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import Parceiro1 from './img/stellantis.png'
 import Parceiro2img from './img/fiap.png'
 import Parceiro3img from './img/alura.webp'
@@ -95,6 +94,10 @@ legend{
         background-color: #ccc;
         margin-left: 25%;
         display: block;
+    }
+
+    textarea{
+
     }
         
     button{
@@ -418,7 +421,7 @@ box-shadow: .5em .5em 1em black;
 
     
     :hover{
-        width: 30vw;
+        width: 35vw;
         height: 100vh;
         background-color: #11111a;
         box-shadow: 0 .7em 1em black;
@@ -520,20 +523,20 @@ align-items: center;
 export const DivLogo = styled.div`
 display: flex;
 justify-content: center;
-width: 60%;
+width: 40%;
 
     img{
-        max-width: 30%;
+        max-width: 40%;
         border-radius: 60%;
         box-shadow: .5em .5em 1em #0005;
         @media (max-width: 768px) {
-        max-width: 40%;
+        max-width: 70%;
     }
     }
 `
 
 export const DivDevs = styled.div`
-    width: 40%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1029,6 +1032,121 @@ export const ContainerAluguel = styled.div`
             background-color: rgba(0,144,130,.5);
             border-radius: 1em;
             border: 2px solid #000;
+        }
+    }
+    
+`
+export const TituloPerfil = styled.h1`
+
+margin: 20vh 0 5vh 0;
+text-align: center;
+color: #ccc;
+font-size: 2.4em;
+`
+
+export const DivPerfil = styled.div`
+    background-color: #111110;
+    margin: 0 5vh;
+    border-radius: 1em;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    overflow: hidden;
+    ::after{
+            content: "";
+            background-color: #ccc2;
+            position: absolute;
+            height: 100%;
+            width: 1%;
+            left: 30vw;
+            border-radius: 1em;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+    #div-img-perfil{
+        width: 180px;
+        box-shadow: .5em 0 1em #0ab;
+        height: 180px;
+        margin: 1em;
+        border-radius: 50%;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        #logo-user{
+            font-size: 9em;
+            color: #0abe;
+            margin-top: .28em;
+        }
+
+    }
+    #conteudo-perfil{
+        width: 50%;
+        margin: 1em;
+        border-radius: 1em;
+        background-color:#222;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .label-perfil{
+            font-weight: bold;
+            font-size: 1.4em;
+            margin:.5em;
+            color: #0ab;
+        }
+        .valor-label{
+            color: #ccc;
+            font-size: 1.2em;
+        }
+        #edit-button{
+            background-color: transparent;
+            color: #0ab;
+            font-size: 1.2em;
+            :hover{
+                cursor: pointer;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+`
+
+export const DivAvaliacao = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color:#ccc;
+    margin-top: 15vh;
+    padding: 1em;
+
+    form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1em;
+
+        textarea{
+            background-color: #fff2;
+            border-radius: 1em;
+            resize: none;
+            width: 100%;
+            color: #ccc;
+            align-self: center;
+            padding: 1em;
+            margin-bottom: 3vh;
+            font-size: 1.1em;
+        }
+
+        label{
+            font-size: 1.3em;
         }
     }
 `

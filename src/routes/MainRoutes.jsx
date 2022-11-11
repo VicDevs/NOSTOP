@@ -9,6 +9,7 @@ import Historico from '../components/Cliente/Historico'
 import Perfil from '../components/Cliente/Perfil'
 import Avaliacao from '../components/Cliente/Avaliacao'
 import ConfirmacaoAluguel from '../components/Cliente/ConfirmacaoAluguel'
+import Veiculos from '../components/Cliente/Veiculos'
 
 
 export default function MainRoutes(){
@@ -25,7 +26,8 @@ export default function MainRoutes(){
             <Route exact path='/confirmacaoAluguel/:id/:precoHora' element={<ConfirmacaoAluguel/>}/>
             <Route path='/historico' element={<Historico/>}/>
             <Route path='/perfil' element={<Perfil/>}/>
-            <Route path='/avaliacao' element = {<Avaliacao/>}/>
+            <Route path='/veiculos' element={<Veiculos/>}/>
+            <Route path='/avaliacao/:id' element = {<Avaliacao/>}/>
         </Routes>
     )
 }

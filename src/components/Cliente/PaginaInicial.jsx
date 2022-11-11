@@ -13,11 +13,11 @@ const verificar = sessionStorage.getItem("usuario-validado")
 
 export default function PaginaInicial(){
 
-    // useEffect(()=>{
-    //     if(verificar == null){
-    //         window.location = "/"
-    //     }
-    // },[])
+    useEffect(()=>{
+        if(verificar == null){
+            window.location = "/"
+        }
+    },[])
 
     return(
         <PaginaIni>
